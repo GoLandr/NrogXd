@@ -242,7 +242,7 @@ VPS(IP:22.22.22.33)执行:
     `./proxy tserver -r ":28080@:80" -P "127.0.0.1:33080" -C proxy.crt -K proxy.key`  
   
 1. 在公司机器A上面执行  
-    `./proxy tclient -C proxy.crt -K proxy.key`  
+    `./proxy tclient -P "22.22.22.22:33080" -C proxy.crt -K proxy.key`  
 
 1. 完成  
   
@@ -261,10 +261,10 @@ VPS(IP:22.22.22.33)执行:
 步骤:  
 1. 在vps上执行,确保vps的80端口没被其它程序占用.  
     `./proxy tbridge -p ":33080" -C proxy.crt -K proxy.key`  
-    `./proxy tserver -r ":80@:80" -P ":33080" -C proxy.crt -K proxy.key`  
+    `./proxy tserver -r ":80@:80" -P "22.22.22.22:33080" -C proxy.crt -K proxy.key`  
 
 1. 在自己笔记本上面执行  
-    `./proxy tclient -C proxy.crt -K proxy.key`  
+    `./proxy tclient -P "22.22.22.22:33080" -C proxy.crt -K proxy.key`  
 
 1. 完成  
   
@@ -309,10 +309,10 @@ VPS(IP:22.22.22.33)执行:
   
 **4.6、高级用法二**  
 提示:  
-如果同时有多个client连接到同一个bridge,需要指定不同的key,可以通过--k参数设定,--k可以是任意唯一字符串,
+如果同时有多个client连接到同一个bridge,需要指定不同的key,可以通过--k参数设定,--k可以是任意唯一字符串,  
 只要在同一个bridge上唯一即可.  
-server连接到bridge的时候,如果同时有多个client连接到同一个bridge,需要使用--k参数选择client. 
-暴露多个端口重复-r参数即可.-r格式是:"本地IP:本地端口@clientHOST:client端口"  
+server连接到bridge的时候,如果同时有多个client连接到同一个bridge,需要使用--k参数选择client.   
+暴露多个端口重复-r参数即可.-r格式是:"本地IP:本地端口@clientHOST:client端口".   
   
 背景:  
 - 公司机器A提供了web服务80端口,ftp服务21端口  
@@ -340,6 +340,12 @@ server连接到bridge的时候,如果同时有多个client连接到同一个brid
   
 ### TODO  
 - socks5代理支持.  
+### 如何使用源码?   
+cd进入你的go src目录,然后git clone https://github.com/snail007/goproxy.git ./proxy 即可.   
+编译直接:go build     
+运行: go run *.go    
+utils是工具包,service是具体的每个服务类.   
+
 ### License  
 Proxy is licensed under GPLv3 license.  
 ### Contact  
