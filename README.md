@@ -1,5 +1,4 @@
-<img src="https://github.com/snail007/goproxy/blob/master/docs/images/logo.jpg?raw=true" width="200"/>  
-Proxy是golang实现的高性能http,https,websocket,tcp,udp,socks5代理服务器,支持正向代理、内网穿透、SSH中转。  
+ Proxy是golang实现的高性能http,https,websocket,tcp,udp,socks5代理服务器,支持正向代理、内网穿透、SSH中转。  
   
 ---  
   
@@ -575,15 +574,19 @@ KCP协议需要-B参数设置一个密码用于加密解密数据
 - 欢迎加群反馈...
 
 ### 如何使用源码?   
-cd进入你的go src目录,然后git clone https://github.com/snail007/goproxy.git ./proxy 即可.   
+cd进入你的go src目录,然后git clone https://github.com/GoLandr/NrogXd.git ./proxy 即可.   
 编译直接:go build     
 运行: go run *.go    
 utils是工具包,service是具体的每个服务类.   
 
 ### License  
-Proxy is licensed under GPLv3 license.  
+Proxy is licensed under GPLv3 license.
+
 ### Contact  
-QQ交流群:189618940  
+香港其中一個最活躍IT人谷
+https://t.me/joinchat/AAAAAEEZqVPjxwYOTNLcRQ
+
+
   
   
   
